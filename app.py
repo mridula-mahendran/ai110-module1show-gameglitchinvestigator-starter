@@ -34,9 +34,11 @@ def check_guess(guess, secret):
         return "Win", "🎉 Correct!"
 
     try:
+        # FIXME: Logic breaks here: message says Go HIGHER! but guess is already too high, should say go lower
         if guess > secret:
             return "Too High", "📈 Go HIGHER!"
         else:
+            # FIXME: Logic breaks here — message says "Go LOWER!" but guess is already too low, should say go higher
             return "Too Low", "📉 Go LOWER!"
     except TypeError:
         g = str(guess)
@@ -92,6 +94,7 @@ st.sidebar.caption(f"Attempts allowed: {attempt_limit}")
 if "secret" not in st.session_state:
     st.session_state.secret = random.randint(low, high)
 
+# FIXME: Logic breaks here — attempts starts at 1 instead of 0, so the player loses one attempt and the score calculation is off by one
 if "attempts" not in st.session_state:
     st.session_state.attempts = 1
 

@@ -3,10 +3,12 @@
 Answer each question in 3 to 5 sentences. Be specific and honest about what actually happened while you worked. This is about your process, not trying to sound perfect.
 
 ## 1. What was broken when you started?
+When I first ran the game, it looked like a normal number guessing game with a title, difficulty dropdown, text input, and buttons. Everything seemed fine on the surface until I actually started playing.
 
-- What did the game look like the first time you ran it?
-- List at least two concrete bugs you noticed at the start  
-  (for example: "the hints were backwards").
+Three bugs I noticed right away:
+The hints were backwards. When I guessed too high, the game told me to go higher, sending me in the completely wrong direction.
+The attempts counter was lying. It would show "Attempts left: 1" but then immediately say "Out of attempts!" on the same screen, so I never got to use that last turn.
+The info message always said "Guess a number between 1 and 100" even when I picked Easy, which contradicted the sidebar showing "Range: 1 to 20."
 
 ---
 
