@@ -21,11 +21,9 @@ Incorrect/misleading AI suggestion: When I asked Claude Code to review the diffi
 ---
 
 ## 3. Debugging and testing your fixes
-
-- How did you decide whether a bug was really fixed?
-- Describe at least one test you ran (manual or using pytest)  
-  and what it showed you about your code.
-- Did AI help you design or understand any tests? How?
+I decided a bug was fixed by checking it two ways: running automated tests with pytest and then manually playing the game. If both gave me the right behavior, I was confident the fix worked. Just seeing the code change wasn't enough — I needed to see it actually work.
+For the hints bug, I ran five pytest cases in tests/test_game_logic.py. Two of them specifically targeted my fix: one checked that guessing 60 against a secret of 50 returns a message containing "LOWER," and the other checked that guessing 40 against 50 returns a message containing "HIGHER." All five tests passed, which told me the hint messages were now pointing in the correct direction. I also ran the game with streamlit run app.py, guessed a number I knew was too high, and confirmed the hint told me to go lower.
+Claude Code helped me design the tests. I described the bug I fixed and asked it to generate pytest cases that verify the hint direction. It wrote the tests and also fixed the existing starter tests, which were broken because they compared against a string instead of unpacking the tuple that check_guess returns. I would not have caught that issue with the starter tests on my own without running them first.
 
 ---
 
