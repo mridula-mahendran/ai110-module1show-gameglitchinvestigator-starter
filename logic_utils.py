@@ -32,6 +32,7 @@ def parse_guess(raw: str):
     return True, value, None
 
 
+# FIX: Swapped hint messages — identified bug through gameplay, fixed using Claude Code
 def check_guess(guess, secret):
     """
     Compare guess to secret and return (outcome, message).

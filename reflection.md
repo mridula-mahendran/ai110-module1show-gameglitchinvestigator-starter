@@ -14,9 +14,9 @@ The info message always said "Guess a number between 1 and 100" even when I pick
 
 ## 2. How did you use AI as a teammate?
 
-- Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
-- Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
-- Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
+I used Claude Code as my AI tool for this project. I used it to refactor code across multiple files, fix bugs, and generate tests.
+Correct AI suggestion: After playing the game and noticing the hints were sending me in the wrong direction, I prompted Claude Code to fix the backwards hint messages in check_guess. It correctly swapped the messages so that "Too High" now says "Go LOWER!" and "Too Low" says "Go HIGHER!" I verified this by running the game and guessing a number I knew was too high. The hint now correctly told me to go lower. I also wrote pytest cases that check the hint text, and all tests passed.
+Incorrect/misleading AI suggestion: When I asked Claude Code to review the difficulty settings, it flagged the Hard mode range (1 to 50) as a bug, saying Hard should have the widest range since it is the hardest level. But when I looked at it more carefully, I realized Hard gives you only 5 attempts for 50 numbers, while Normal gives 8 attempts for 100 numbers. That actually makes Hard harder. The smaller range is a design choice, not a bug. The AI jumped to a conclusion based on the numbers looking out of order without considering the attempt limits.
 
 ---
 

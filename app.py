@@ -1,6 +1,7 @@
 import random
 import streamlit as st
 from logic_utils import check_guess, get_range_for_difficulty, parse_guess, update_score
+# REFACTOR: Moved game logic functions to logic_utils.py using Claude Code Agent mode
 
 st.set_page_config(page_title="Glitchy Guesser", page_icon="🎮")
 
@@ -30,6 +31,7 @@ st.sidebar.caption(f"Attempts allowed: {attempt_limit}")
 if "secret" not in st.session_state:
     st.session_state.secret = random.randint(low, high)
 
+# FIX: Changed attempts from 1 to 0 — found off-by-one bug in UI, fixed using Claude Code
 if "attempts" not in st.session_state:
     st.session_state.attempts = 0
 
