@@ -25,13 +25,24 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+The game is a number guessing game built with Streamlit. The player picks a difficulty, and the game generates a secret number within a range. The player guesses numbers and gets hints telling them to go higher or lower until they find the secret or run out of attempts.
+
+**Bugs I found:**
+
+1. The hint messages were backwards. Guessing too high showed "Go HIGHER!" and guessing too low showed "Go LOWER!", sending the player in the wrong direction every time.
+2. The attempts counter started at 1 instead of 0, which meant the player got one fewer turn than the game promised. It also caused the score to be 10 points lower than expected on a first-attempt win (70 instead of 80).
+3. The info message always said "Guess a number between 1 and 100" regardless of the selected difficulty, contradicting the sidebar.
+
+**Fixes I applied:**
+
+1. Swapped the hint messages in `check_guess` so "Too High" tells the player to go lower and "Too Low" tells them to go higher.
+2. Changed the attempts initialization from 1 to 0 in `app.py` so the counter and scoring work correctly.
+3. Moved all game logic functions (`check_guess`, `parse_guess`, `get_range_for_difficulty`, `update_score`) from `app.py` into `logic_utils.py` and updated imports, separating UI code from game logic.
 
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
+![Fixed game screenshot](demo.png)
+![Pytest results](pytest_results.png)
 
 ## 🚀 Stretch Features
 
