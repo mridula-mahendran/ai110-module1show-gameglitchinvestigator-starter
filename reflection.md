@@ -29,13 +29,12 @@ Claude Code helped me design the tests. I described the bug I fixed and asked it
 
 ## 4. What did you learn about Streamlit and state?
 
-- How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
+Streamlit works differently from a regular app. Every time you click a button or interact with anything, the entire script runs again from top to bottom. That means if you store a variable like secret = 5 normally, it gets reset to a new value on every click. Session state is how you get around that. It is like a storage box that Streamlit keeps aside and does not wipe between reruns. So instead of secret = 5, you write st.session_state.secret = 5, and it remembers the value even when the page reruns. If I were explaining it to a friend, I would say: imagine every time you press a button, the whole page reloads from scratch, but session state is a sticky note on the side that survives each reload.
 
 ---
 
 ## 5. Looking ahead: your developer habits
 
-- What is one habit or strategy from this project that you want to reuse in future labs or projects?
-  - This could be a testing habit, a prompting strategy, or a way you used Git.
-- What is one thing you would do differently next time you work with AI on a coding task?
-- In one or two sentences, describe how this project changed the way you think about AI generated code.
+One habit I want to reuse is writing small, focused commits after each fix instead of doing everything in one big commit at the end. During this project I committed after the refactor, after the hint fix, after the attempts fix, and after the tests. That made it easy to track what changed and why, and if something broke, I could trace it back to a specific commit.
+Next time I work with AI on a coding task, I would not take every suggestion at face value. In this project, the AI flagged the Hard difficulty range as a bug, but when I thought about it myself, it was actually a valid design choice. That taught me to always verify AI suggestions against the actual behavior instead of just accepting them.
+This project changed the way I think about AI generated code. It showed me that AI can write code that looks clean and complete on the surface but still has real logic bugs hiding underneath. The code ran without errors, but the game was basically unplayable until I tested it myself.
